@@ -14,7 +14,7 @@ export interface ChartData {
   wages: number;
 }
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://mgnrega-backend-smvq.onrender.com/api';
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://mgnrega-backend-vq9h.onrender.com/api';
 
 const apiRequest = async (endpoint: string) => {
   const response = await fetch(`${API_BASE_URL}${endpoint}`, {
