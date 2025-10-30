@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Icon Generator</title>
+</head>
+<body>
+    <canvas id="canvas192" width="192" height="192" style="border:1px solid #000;"></canvas>
+    <canvas id="canvas512" width="512" height="512" style="border:1px solid #000;"></canvas>
+    
+    <script>
+        function createIcon(canvasId, size) {
+            const canvas = document.getElementById(canvasId);
+            const ctx = canvas.getContext('2d');
+            
+            // Background
+            ctx.fillStyle = '#FF9933';
+            ctx.fillRect(0, 0, size, size);
+            
+            // White circle (person)
+            ctx.fillStyle = 'white';
+            ctx.beginPath();
+            ctx.arc(size/2, size*0.35, size*0.12, 0, 2 * Math.PI);
+            ctx.fill();
+            
+            // White rectangle (document)
+            ctx.fillStyle = 'white';
+            ctx.fillRect(size*0.3, size*0.5, size*0.4, size*0.3);
+            
+            // Orange lines (text)
+            ctx.fillStyle = '#FF9933';
+            ctx.fillRect(size*0.35, size*0.55, size*0.3, size*0.02);
+            ctx.fillRect(size*0.35, size*0.6, size*0.2, size*0.02);
+            ctx.fillRect(size*0.35, size*0.65, size*0.25, size*0.02);
+            
+            // Text
+            ctx.fillStyle = 'white';
+            ctx.font = `${size*0.08}px Arial`;
+            ctx.textAlign = 'center';
+            ctx.fillText('MGNREGA', size/2, size*0.9);
+            
+            return canvas.toDataURL('image/png');
+        }
+        
+        // Generate icons
+        const icon192 = createIcon('canvas192', 192);
+        const icon512 = createIcon('canvas512', 512);
+        
+        // Create download links
+        const link192 = document.createElement('a');
+        link192.download = 'icon-192.png';
+        link192.href = icon192;
+        link192.textContent = 'Download 192x192 Icon';
+        document.body.appendChild(link192);
+        
+        const link512 = document.createElement('a');
+        link512.download = 'icon-512.png';
+        link512.href = icon512;
+        link512.textContent = 'Download 512x512 Icon';
+        document.body.appendChild(link512);
+        
+        console.log('Icons generated. Right-click and save the canvas images as PNG files.');
+    </script>
+</body>
+</html>
