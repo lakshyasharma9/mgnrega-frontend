@@ -152,7 +152,7 @@ export default function Dashboard({ district, onBack }: Props) {
             icon={CreditCard}
             title={t('totalWages')}
             hindiTitle="कुल मजदूरी"
-            value={`₹${(data.totalWages / 100000).toFixed(1)}L`}
+            value={`₹${(data.totalWages / 100).toFixed(1)}K`}
             subtitle="रुपये दिए गए / Rupees paid"
             color="text-green-600"
             bgColor="bg-green-600"
